@@ -20,8 +20,8 @@ class regester(models.Model):
 
 
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
 class courses(models.Model):
     title = models.CharField(max_length=50)
