@@ -35,7 +35,7 @@ def index5(request):
 
 
 def index6(request):
-    var_1 = courses.objects.all()
+    var_1 = courses.objects.all().filter(archive=False)
     return render(request, 'project/courses.html', {'var_1': var_1})
 
 

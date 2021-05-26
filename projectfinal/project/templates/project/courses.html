@@ -74,7 +74,7 @@
   <hr class="my-4"style="text-align:center">
   <p>Learn new skills, pursue your interests or advance your career with our short online courses.</p>
   <div class="btn-wrap">
-                <a href="#" class="btn btn-warning"> SING IN NOW</a>
+                <a href="/loginuser" class="btn btn-warning"> SING IN NOW</a>
               </div>
 </div>
  </div>
@@ -96,27 +96,33 @@
 
         <!-- for database-->
 
-
-         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+        {% for x in var_1.all %}
+         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0 py-3">
             <div class="box">
-                {% for x in var_1.all %}
+                
               <h3>{{x.title}}</h3>
               <h4><sup>$</sup>{{x.price}}<span> / month</span></h4>
-              <ul>
-                <li>{{x.body}}</li>
-              </ul>
+              <div class="card" style="border: none;">
+                <div class="card-body">
+                
+                  <p class="card-text" style="font-size: medium;">{{ x.body }}</p>
+                
+            
+                </div>
+              </div>
 
               <div class="btn-wrap">
-                <a href="/login/" class="btn-buy">Buy Now</a>
+                <a href="/loginuser" class="btn-buy">Buy Now</a>
               </div>
-                         {% endfor %}
+                        
             </div>
 
   </div>
+  {% endfor %}
       </div>
             </div>
 
-
+            
 
 </section><!-- End Pricing Section -->
   </body>
