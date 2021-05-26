@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path ,include
-from project.views import *
 from project import views
 from register import views as v
 from contact import views as contact_views
@@ -27,7 +26,14 @@ urlpatterns = [
     path('logout', v.logoutuser, name='logoutuser'),
     path('loginuser', v.loginuser, name='loginuser'),
     path('', views.index, name="home"),
-    path('index/', views.index, name="home"),
+    path('index/', views.index),
+    path('project', views.project, name="project"),
+    path('allarchive', views.allarchive, name="allarchive"),
+    path('editproject/<int:pk>', views.editproject, name="editproject"),
+    path('deleteproject/<int:pk>', views.deleteproject, name="deleteproject"),
+    path('archiveproject/<int:pk>', views.archiveproject, name="archiveproject"),
+    path('createproject', views.createproject, name="createproject"),
+    path('controlpanel', views.controlpanel, name="controlpanel"),
     path('test/', views.index2, name="test"),
     path('test2/', views.index3, name="test1"),
     path('contact/', views.index4, name="contact"),

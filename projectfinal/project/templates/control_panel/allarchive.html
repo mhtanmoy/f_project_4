@@ -1,0 +1,10 @@
+{% for i in form %}
+{{ i.title }}
+{{ i.date }}
+{{ i.description }}
+
+<a href="{% url 'archiveproject' i.id %}">Undo archive</a>
+
+<br>
+
+{% endfor %} 

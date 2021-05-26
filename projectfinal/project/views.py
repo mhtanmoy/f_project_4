@@ -1,8 +1,7 @@
-from .models import Contact, courses
+from django.shortcuts import render,redirect,get_object_or_404
 
-from django.shortcuts import render
-
-from .models import regester
+from .models import *
+from .forms import *
 
 # Create your views here.
 def index(request):
@@ -40,4 +39,52 @@ def index6(request):
     return render(request, 'project/courses.html', {'var_1': var_1})
 
 
+def project(request):
+    form= Project.objects.order_by('-date')
+    return render(request, 'project/project.html',{'form':form})
 
+
+def controlpanel(request):
+    form= Project.objects.order_by('-date').filter(archive=False)
+    return render(request, 'control_panel/control_project.html',{'form':form})
+
+def allarchive(request):
+    form= Project.objects.order_by('-date').filter(archive=True)
+    return render(request, 'control_panel/allarchive.html',{'form':form})
+
+
+def editproject(request, pk):
+    projects = Project.objects.get(id=pk)
+    form = Projectform(instance=projects)
+    if request.method == 'POST':
+        form = Projectform(request.POST, instance=projects)
+        if form.is_valid():
+            form.save()
+            return redirect('controlpanel')
+    return render(request,'control_panel/editproject.html', {'form':form})
+
+def archiveproject(request, pk):
+    projects = Project.objects.get(id=pk)
+    form = Archiveform(instance=projects)
+    if request.method == 'POST':
+        form = Archiveform(request.POST, instance=projects)
+        if form.is_valid():
+            form.save()
+            return redirect('controlpanel')
+    return render(request,'control_panel/archiveproject.html', {'form':form})
+
+
+def deleteproject(request,pk):
+    obj=get_object_or_404(Project,id=pk)
+    if request.method =='GET':
+        obj.delete()
+        return redirect('controlpanel')
+
+def createproject(request):
+    form = Projectform()
+    if request.method == 'POST':
+        form = Projectform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('controlpanel')
+    return render(request,'control_panel/createproject.html', {'form':form})
