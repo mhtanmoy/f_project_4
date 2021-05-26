@@ -42,15 +42,22 @@
     <ul class="nav navbar-nav navbar-right" >
 
       {% if user.is_authenticated %}
-      <li ><a href="/register/" STYLE="color:black ;font-size:20px"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
+      <li ><a href="/register/" STYLE="color:black ;font-size:20px">
+        <span class="glyphicon glyphicon-user"></span>
+         {{ user.username }}</a></li>
               
-              <li><a href="/loginuser"STYLE="color:black;font-size:20px " ><form method="POST" action="{% url 'logoutuser' %}" STYLE="color:black ;font-size:20px">
+              <li><a href="/loginuser"STYLE="color:black;font-size:20px " >
+                <form method="POST" action="{% url 'logoutuser' %}" STYLE="color:black ;font-size:20px">
                 {% csrf_token %} <span class="glyphicon glyphicon-log-in" ></span>
             <button type="submit"  class="btn btn-link" STYLE="color:black ;font-size:20px">Log-Out</button></a></li>
       {% else %}
 
-      <li ><a href="/register/" STYLE="color:black ;font-size:20px"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/loginuser"STYLE="color:black;font-size:20px " ><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+      <li ><a href="/register/" STYLE="color:black ;font-size:20px"><span class="glyphicon glyphicon-user">
+
+      </span> Sign Up</a></li>
+      <li><a href="/loginuser"STYLE="color:black;font-size:20px " ><span class="glyphicon glyphicon-log-in" >
+
+      </span> Login</a></li>
     {% endif %}
     </ul>
   </div>
@@ -88,7 +95,7 @@
               <li><img src="{% static 'project/img/chevron-right.svg' %}"> <a href="/index/">Home</a></li>
               <li> <img src="{% static 'project/img/chevron-right.svg' %}"><a href="/about/">About us</a></li>
               <li><img src="{% static 'project/img/chevron-right.svg' %}"> <a href="/contact/">contact</a></li>
-              <li><img src="{% static 'project/img/chevron-right.svg' %}"> <a href="/login/">LOGIN </a></li>
+              <li><img src="{% static 'project/img/chevron-right.svg' %}"> <a href="/loginuser">LOGIN </a></li>
               <li><img src="{% static 'project/img/chevron-right.svg' %}"> <a href="/register/">REGISTER </a></li>
             </ul>
           </div>
