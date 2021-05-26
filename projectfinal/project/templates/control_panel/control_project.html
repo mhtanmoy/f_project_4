@@ -67,15 +67,17 @@
   <body>
   <div class="container">
 
-<div class="jumbotron" style="background:  #cccccc
+<div class="jumbotron" style="background:  #ffffff
  ;color:white ;  margin-top: 100px;" >
-  <h1 class="display-4" style="text-align: center">DMR ACADEMY</h1>
-  <p class="lead" style="text-align: center"> Learn how to code or build your skills in programming online to gain a better understanding of how websites and apps are designed and developed.</p>
-  <hr class="my-4"style="text-align:center">
-  <p>Learn new skills, pursue your interests or advance your career with our short online courses.</p>
-  <div class="btn-wrap">
-                <a href="/loginuser" class="btn btn-warning"> SING IN NOW</a>
-              </div>
+  
+  <p class="lead" style="text-align: center">
+        <a href="{% url 'createproject' %}" class="btn btn-outline-secondary btn-lg btn-block" style="font-size: large;">Add project</a>
+</p>
+<hr class="my-4"style="text-align:center">
+<p class="lead" style="text-align: center">
+        <a href="{% url 'allarchive' %}" class="btn btn-outline-secondary btn-lg btn-block" style="font-size: large;">Archive Projects</a>
+</p>
+  
 </div>
  </div>
 
@@ -83,10 +85,6 @@
     <section id="pricing" class="pricing">
       <div class="container">
 
-        <div class="section-title">
-                <a href="{% url 'createproject' %}">Add project</a>
-                <a href="{% url 'allarchive' %}">Archive Projects</a>
-        </div>
 
 
           <div class="row">
@@ -113,14 +111,11 @@
             
                 </div>
               </div>
-
-              <div class="btn-wrap">
-                <a href="{% url 'editproject' i.id %}" class="btn-buy">Edit</a>
-                <a href="{% url 'deleteproject' i.id %}" class="btn-buy">Edit</a>
-                <a href="{% url 'archiveproject' i.id %}" class="btn-buy">Edit</a>
+              <div>
+                <a href="{% url 'editproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Edit</a>
+                <a href="{% url 'deleteproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Delete</a>
+                <a href="{% url 'archiveproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Archive</a>
               </div>
-                        
-            </div>
 
   </div>
   {% endfor %}

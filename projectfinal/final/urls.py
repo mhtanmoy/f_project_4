@@ -27,7 +27,7 @@ urlpatterns = [
     path('logout', v.logoutuser, name='logoutuser'),
     path('loginuser', v.loginuser, name='loginuser'),
     path('', views.index, name="home"),
-    path('index/', views.index),
+    path('index/', views.index, name="home"),
     path('allarchive', views.allarchive, name="allarchive"),
     path('editproject/<int:pk>', views.editproject, name="editproject"),
     path('deleteproject/<int:pk>', views.deleteproject, name="deleteproject"),
