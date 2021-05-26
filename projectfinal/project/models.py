@@ -28,18 +28,8 @@ class courses(models.Model):
     title = models.CharField(max_length=50)
     price = models.IntegerField()
     body = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.title
-
-
-
-class Project(models.Model):
-    title = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
-    date= models.DateField(auto_now_add=True)
     archive= models.BooleanField(default=False)
 
-
     def __str__(self):
         return self.title
+

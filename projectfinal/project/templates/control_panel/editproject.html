@@ -1,7 +1,7 @@
 <form method="POST">
     {% csrf_token %}
- {{ form.title }}
- {{ form.date }}
- {{ form.description }}
+    {{ form.title }}
+    {{ form.price }}
+    {{ form.body }}
 <button type="submit">Save</button>
 </form>

@@ -10,8 +10,8 @@
         <a href="{% url 'allarchive' %}">Archive Projects</a>
         {% for i in form %}
         {{ i.title }}
-        {{ i.date }}
-        {{ i.description }}
+        {{ i.price }}
+        {{ i.body }}
         <a href="{% url 'editproject' i.id %}">Edit</a>
         <a href="{% url 'deleteproject' i.id %}">Delete</a>
         <a href="{% url 'archiveproject' i.id %}">Archive</a>

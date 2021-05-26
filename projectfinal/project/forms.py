@@ -9,12 +9,12 @@ user = get_user_model()
 
 class Projectform(ModelForm):
     class Meta:
-        model = Project
-        fields = ['title', 'description']
+        model = courses
+        fields = ['title', 'price','body']
 
 
 class Archiveform(ModelForm):
     class Meta:
-        model = Project
+        model = courses
         fields = ['archive']
 

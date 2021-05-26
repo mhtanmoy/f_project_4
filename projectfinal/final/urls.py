@@ -22,12 +22,12 @@ from contact import views as contact_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('project.urls')),
+    path('api/', include('api.urls')),
     path('register/', v.register, name='register'),
     path('logout', v.logoutuser, name='logoutuser'),
     path('loginuser', v.loginuser, name='loginuser'),
     path('', views.index, name="home"),
     path('index/', views.index),
-    path('project', views.project, name="project"),
     path('allarchive', views.allarchive, name="allarchive"),
     path('editproject/<int:pk>', views.editproject, name="editproject"),
     path('deleteproject/<int:pk>', views.deleteproject, name="deleteproject"),

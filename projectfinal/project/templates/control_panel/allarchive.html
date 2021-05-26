@@ -1,7 +1,7 @@
 {% for i in form %}
 {{ i.title }}
-{{ i.date }}
-{{ i.description }}
+{{ i.price }}
+{{ i.body }}
 
 <a href="{% url 'archiveproject' i.id %}">Undo archive</a>
 
