@@ -1,4 +1,4 @@
-from projectfinal.project.models import Contact
+from project.models import Contact
 from rest_framework import serializers
 from project.models import courses,Contact
 

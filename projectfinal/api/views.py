@@ -3,7 +3,7 @@ from rest_framework import generics ,  permissions
 from project.models import *
 from .serializers import *
 
-class CustomerUserList(generics.ListCreateAPIView):
+class coursesList(generics.ListCreateAPIView):
     queryset=courses.objects.all()
     serializer_class=CoursesSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -11,7 +11,7 @@ class CustomerUserList(generics.ListCreateAPIView):
         serializer.save()
 
 
-class CustomerUserUpdateList(generics.UpdateAPIView):
+class coursesUpdateList(generics.UpdateAPIView):
     queryset=courses.objects.all()
     serializer_class=CoursesSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -19,7 +19,7 @@ class CustomerUserUpdateList(generics.UpdateAPIView):
     def perform_create(self, serializer):
         serializer.save()
 
-class ContactUserList(generics.ListCreateAPIView):
+class ContactList(generics.ListCreateAPIView):
     queryset=Contact.objects.all()
     serializer_class=ContactSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -27,7 +27,7 @@ class ContactUserList(generics.ListCreateAPIView):
         serializer.save()
 
 
-class CustomerUserUpdateList(generics.UpdateAPIView):
+class contactUpdateList(generics.UpdateAPIView):
     queryset=Contact.objects.all()
     serializer_class=ContactSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
