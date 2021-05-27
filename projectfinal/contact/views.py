@@ -7,8 +7,6 @@ def contact_view(request):
     return HttpResponse("Contact app works!")
 
 
-def contact_view(request):
-    return render(request, 'contact/contact.html')
 
 
 def contact_view(request):
