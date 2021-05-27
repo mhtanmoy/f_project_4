@@ -3,11 +3,6 @@ from django.shortcuts import render
 from .forms import ContactForm
 
 
-def contact_view(request):
-    return HttpResponse("Contact app works!")
-
-
-
 
 def contact_view(request):
     if request.method == 'POST':
