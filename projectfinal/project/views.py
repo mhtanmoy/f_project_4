@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from .models import *
 from .forms import *
 from .decorators import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     count= courses.objects.all().filter(archive=False).count()
@@ -41,17 +42,19 @@ def index6(request):
     var_1 = courses.objects.all().filter(archive=False)
     return render(request, 'project/courses.html', {'var_1': var_1})
 
-
+@login_required
 @manager_only
 def controlpanel(request):
     form= courses.objects.all().filter(archive=False)
     return render(request, 'control_panel/control_project.html',{'form':form})
 
+@login_required
 @manager_only
 def allarchive(request):
     form= courses.objects.all().filter(archive=True)
     return render(request, 'control_panel/allarchive.html',{'form':form})
 
+@login_required
 @manager_only
 def editproject(request, pk):
     projects = courses.objects.get(id=pk)
@@ -63,6 +66,7 @@ def editproject(request, pk):
             return redirect('controlpanel')
     return render(request,'control_panel/editproject.html', {'form':form})
 
+@login_required
 @manager_only
 def archiveproject(request, pk):
     projects = courses.objects.get(id=pk)
@@ -75,6 +79,7 @@ def archiveproject(request, pk):
     return render(request,'control_panel/archiveproject.html', {'form':form})
 
 
+@login_required
 @manager_only
 def deleteproject(request,pk):
     obj=get_object_or_404(courses,id=pk)
@@ -82,6 +87,7 @@ def deleteproject(request,pk):
         obj.delete()
         return redirect('controlpanel')
 
+@login_required
 @manager_only
 def createproject(request):
     form = Projectform()
@@ -91,3 +97,7 @@ def createproject(request):
             form.save()
             return redirect('controlpanel')
     return render(request,'control_panel/createproject.html', {'form':form})
+
+@login_required
+def buynow(request):
+    return render(request, 'project/buynow.html')

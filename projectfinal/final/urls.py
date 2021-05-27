@@ -40,4 +40,5 @@ urlpatterns = [
     path('about/', views.index5, name="about"),
     path('courses/', views.index6, name="courses"),
     path('contacts/', contact_views.contact_view, name='contact'),
+    path('buynow', views.buynow, name='buynow'),
 ]
