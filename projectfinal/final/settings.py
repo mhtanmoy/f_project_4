@@ -44,7 +44,6 @@ INSTALLED_APPS = [
      'contact',
      'rest_framework',
      'api',
-     'widget_tweaks',
 
 
 ]

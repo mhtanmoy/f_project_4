@@ -111,11 +111,14 @@
             
                 </div>
               </div>
-              <div>
-                <a href="{% url 'editproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Edit</a>
-                <a href="{% url 'deleteproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Delete</a>
-                <a href="{% url 'archiveproject' i.id %}" class="btn btn-link" style="font-size: medium;text-decoration: none;">Archive</a>
+
+              <div class="btn-wrap">
+                <a href="{% url 'editproject' i.id %}" class="btn-buy" style="padding: 10px;">Edit</a>
+                <a href="{% url 'deleteproject' i.id %}" class="btn-buy" style="padding: 10px;">Delete</a>
+                <a href="{% url 'archiveproject' i.id %}" class="btn-buy" style="padding: 10px;">Archive</a>
               </div>
+                        
+            </div>
 
   </div>
   {% endfor %}

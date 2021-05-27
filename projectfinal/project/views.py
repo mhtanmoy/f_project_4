@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect,get_object_or_404
-
+from django.contrib.auth import get_user_model
 from .models import *
 from .forms import *
 
 # Create your views here.
 def index(request):
-    return render(request, 'project/index.html')
+    count= courses.objects.all().filter(archive=False).count()
+    User = get_user_model()
+    users = User.objects.all().count()
+    return render(request, 'project/index.html',{'courses':count,'users':users})
 
 
 def index2(request):
