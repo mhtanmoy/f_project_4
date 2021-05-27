@@ -46,26 +46,26 @@
     <ul class="nav navbar-nav navbar-right" >
 
       {% if user.is_authenticated %}
-      <li ><a href="/register/" STYLE="color:black ;font-size:20px">
+      <li ><a href="/register/" STYLE="color:black ;font-size:20px;">
         <span class="glyphicon glyphicon-user"></span>
          {{ user.username }}</a></li>
               
               <li>
-                <form method="POST" action="{% url 'logoutuser' %}" STYLE="color:black ;font-size:20px;margin-top: 22px;">
-                {% csrf_token %} <span class="glyphicon glyphicon-log-in" ></span>
+                <form method="POST" action="{% url 'logoutuser' %}" STYLE="color:black ;font-size:20px;">
+                {% csrf_token %} <span class="glyphicon glyphicon-log-in"></span>
             <button type="submit"  class="btn btn-link" 
             STYLE="color:black;
             font-size:20px;
             border: none;
             outline: none;
             text-decoration: none;
-            ">Log-Out</button></li>
+            position: fixed;">Log-Out</button></li>
       {% else %}
 
-      <li ><a href="/register/" STYLE="color:black ;font-size:20px"><span class="glyphicon glyphicon-user">
+      <li ><a href="/register/" STYLE="color:black ;font-size:20px;text-decoration: none;"><span class="glyphicon glyphicon-user">
 
       </span> Sign Up</a></li>
-      <li><a href="/loginuser"STYLE="color:black;font-size:20px " ><span class="glyphicon glyphicon-log-in" >
+      <li><a href="/loginuser"STYLE="color:black;font-size:20px;text-decoration: none; " ><span class="glyphicon glyphicon-log-in" >
 
       </span> Login</a></li>
     {% endif %}
