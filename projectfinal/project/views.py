@@ -1,15 +1,17 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from .models import *
 from .forms import *
 from .decorators import *
 from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
 def index(request):
-    count= courses.objects.all().filter(archive=False).count()
+    count = courses.objects.all().filter(archive=False).count()
     User = get_user_model()
     users = User.objects.all().count()
-    return render(request, 'project/index.html',{'courses':count,'users':users})
+    return render(request, 'project/index.html', {'courses': count, 'users': users})
 
 
 def index2(request):
@@ -42,17 +44,20 @@ def index6(request):
     var_1 = courses.objects.all().filter(archive=False)
     return render(request, 'project/courses.html', {'var_1': var_1})
 
+
 @login_required
 @manager_only
 def controlpanel(request):
-    form= courses.objects.all().filter(archive=False)
-    return render(request, 'control_panel/control_project.html',{'form':form})
+    form = courses.objects.all().filter(archive=False)
+    return render(request, 'control_panel/control_project.html', {'form': form})
+
 
 @login_required
 @manager_only
 def allarchive(request):
-    form= courses.objects.all().filter(archive=True)
-    return render(request, 'control_panel/allarchive.html',{'form':form})
+    form = courses.objects.all().filter(archive=True)
+    return render(request, 'control_panel/allarchive.html', {'form': form})
+
 
 @login_required
 @manager_only
@@ -64,7 +69,8 @@ def editproject(request, pk):
         if form.is_valid():
             form.save()
             return redirect('controlpanel')
-    return render(request,'control_panel/editproject.html', {'form':form})
+    return render(request, 'control_panel/editproject.html', {'form': form})
+
 
 @login_required
 @manager_only
@@ -76,16 +82,17 @@ def archiveproject(request, pk):
         if form.is_valid():
             form.save()
             return redirect('controlpanel')
-    return render(request,'control_panel/archiveproject.html', {'form':form})
+    return render(request, 'control_panel/archiveproject.html', {'form': form})
 
 
 @login_required
 @manager_only
-def deleteproject(request,pk):
-    obj=get_object_or_404(courses,id=pk)
-    if request.method =='GET':
+def deleteproject(request, pk):
+    obj = get_object_or_404(courses, id=pk)
+    if request.method == 'GET':
         obj.delete()
         return redirect('controlpanel')
+
 
 @login_required
 @manager_only
@@ -96,7 +103,8 @@ def createproject(request):
         if form.is_valid():
             form.save()
             return redirect('controlpanel')
-    return render(request,'control_panel/createproject.html', {'form':form})
+    return render(request, 'control_panel/createproject.html', {'form': form})
+
 
 @login_required
 def buynow(request):
