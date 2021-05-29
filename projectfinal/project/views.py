@@ -21,6 +21,15 @@ def index2(request):
 def index3(request):
     return render(request, 'project/test2.html')
 
+def csharp(request):
+    return render(request, 'project/csharp.html')
+
+def python(request):
+    return render(request, 'project/python.html')
+
+def java(request):
+    return render(request, 'project/java.html')
+
 
 def index4(request):
     if request.method == 'POST':
