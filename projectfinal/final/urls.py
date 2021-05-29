@@ -40,4 +40,7 @@ urlpatterns = [
     path('courses/', views.index6, name="courses"),
     path('contacts/', contact_views.contact_view, name='contact'),
     path('buynow', views.buynow, name='buynow'),
+    path('c#', views.buynow, name='c#'),
+    path('python', views.buynow, name='python'),
+    path('java', views.buynow, name='java'),
 ]
